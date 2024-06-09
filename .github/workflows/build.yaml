@@ -6,7 +6,7 @@ on:
       - main # Change this to your main branch name or remove this line if you want to trigger on all branches
 
 env:
-  IMAGE_NAME: ${{ github.actor }}/pyinstaller-wxpython-linux
+  IMAGE_NAME: pyinstaller-wxpython-linux
 
 jobs:
   build-and-push:
@@ -29,6 +29,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ${{ env.IMAGE_NAME }}:latest
+          tags: ghcr.io/btclock/${{ env.IMAGE_NAME }}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
